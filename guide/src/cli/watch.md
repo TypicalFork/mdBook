@@ -2,8 +2,8 @@
 
 The `watch` command is useful when you want your book to be rendered on every
 file change. You could repeatedly issue `mdbook build` every time a file is
-changed. But using `mdbook watch` once will watch your files and will trigger a
-build automatically whenever you modify a file.
+changed, but using `mdbook watch` greatly simplifies this behaviour. It will watch your files and
+trigger a build automatically whenever you modify a file.
 
 #### Specify a directory
 
@@ -16,7 +16,7 @@ mdbook watch path/to/book
 
 #### --open
 
-When you use the `--open` (`-o`) option, mdbook will open the rendered book in
+When you use the `--open` (`-o`) option, mdBook will open the rendered book in
 your default web browser.
 
 #### --dest-dir
@@ -30,10 +30,10 @@ not specified it will default to the value of the `build.build-dir` key in
 #### Specify exclude patterns
 
 The `watch` command will not automatically trigger a build for files listed in
-the `.gitignore` file in the book root directory. The `.gitignore` file may
+the `.gitignore` file in the book's root directory. The `.gitignore` file may
 contain file patterns described in the [gitignore
 documentation](https://git-scm.com/docs/gitignore). This can be useful for
 ignoring temporary files created by some editors.
 
-_Note: Only `.gitignore` from book root directory is used. Global
-`$HOME/.gitignore` or `.gitignore` files in parent directories are not used._
+***Note***: *Only `.gitignore` from the book's root directory is used. Global
+`$HOME/.gitignore` or `.gitignore` files in parent directories are not used.*

@@ -1,7 +1,7 @@
 # Command Line Tool
 
-mdBook can be used either as a command line tool or a [Rust
-crate](https://crates.io/crates/mdbook). Let's focus on the command line tool
+mdBook can be used either as a command-line tool or a [Rust
+crate](https://crates.io/crates/mdbook). Let's focus on the command line-tool
 capabilities first.
 
 ## Install From Binaries
@@ -38,12 +38,11 @@ have installed mdBook!
 
 
 ### Install Git version
-
-The **[git version](https://github.com/rust-lang/mdBook)** contains all
-the latest bug-fixes and features, that will be released in the next version on
-**Crates.io**, if you can't wait until the next release. You can build the git
-version yourself. Open your terminal and navigate to the directory of you
-choice. We need to clone the git repository and then build it with Cargo.
+If you can't wait till the next release, the
+**[git version](https://github.com/rust-lang/mdBook)** contains all the latest bug fixes and
+features that will be released in the next **Crates.io** version. You can build the git
+version yourself. Open your terminal and navigate to the directory of your
+choice. Then clone the git repository and build it with Cargo.
 
 ```bash
 git clone --depth=1 https://github.com/rust-lang/mdBook.git
@@ -51,5 +50,5 @@ cd mdBook
 cargo build --release
 ```
 
-The executable `mdbook` will be in the `./target/release` folder, this should be
-added to the path.
+The executable `mdbook` will be in the `./target/release` folder, which should be
+manually added to the path.

@@ -33,7 +33,7 @@ book-test/
 
 When a `SUMMARY.md` file already exists, the `init` command will first parse it
 and generate the missing files according to the paths used in the `SUMMARY.md`.
-This allows you to think and create the whole structure of your book and then
+This allows you to think and create the whole structure of your book first, and then
 let mdBook generate it for you.
 
 #### Specify a directory
@@ -50,5 +50,5 @@ mdbook init path/to/book
 When you use the `--theme` flag, the default theme will be copied into a
 directory called `theme` in your source directory so that you can modify it.
 
-The theme is selectively overwritten, this means that if you don't want to
-overwrite a specific file, just delete it and the default file will be used.
+The theme is selectively overwritten; this means that if you don't want to
+overwrite a specific file, just delete it, and the default file will be used.

@@ -27,4 +27,4 @@ value of the `build.build-dir` key in `book.toml`, or to `./book`.
 mdbook clean --dest-dir=path/to/book
 ```
 
-`path/to/book` could be absolute or relative.
+`path/to/book` can be absolute or relative.

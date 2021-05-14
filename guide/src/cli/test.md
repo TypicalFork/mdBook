@@ -3,7 +3,7 @@
 When writing a book, you sometimes need to automate some tests. For example,
 [The Rust Programming Book](https://doc.rust-lang.org/stable/book/) uses a lot
 of code examples that could get outdated. Therefore it is very important for
-them to be able to automatically test these code examples.
+them to be able to test these code examples automatically.
 
 mdBook supports a `test` command that will run all available tests in a book. At
 the moment, only rustdoc tests are supported, but this may be expanded upon in
@@ -11,19 +11,19 @@ the future.
 
 #### Disable tests on a code block
 
-rustdoc doesn't test code blocks which contain the `ignore` attribute:
+rustdoc doesn't test code blocks that contain the `ignore` attribute:
 
     ```rust,ignore
     fn main() {}
     ```
 
-rustdoc also doesn't test code blocks which specify a language other than Rust:
+rustdoc also doesn't test code blocks that specify a language other than Rust:
 
     ```markdown
     **Foo**: _bar_
     ```
 
-rustdoc *does* test code blocks which have no language specified:
+rustdoc *does* test code blocks that don't specify a language:
 
     ```
     This is going to cause an error!
@@ -49,5 +49,5 @@ comma-delimited list (`-L foo,bar`).
 
 The `--dest-dir` (`-d`) option allows you to change the output directory for the
 book. Relative paths are interpreted relative to the book's root directory. If
-not specified it will default to the value of the `build.build-dir` key in
+not specified, it will default to the value of the `build.build-dir` key in
 `book.toml`, or to `./book`.

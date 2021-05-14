@@ -23,7 +23,7 @@ mdbook build path/to/book
 
 #### --open
 
-When you use the `--open` (`-o`) flag, mdbook will open the rendered book in
+When you use the `--open` (`-o`) flag, mdBook will open the rendered book in
 your default web browser after building it.
 
 #### --dest-dir
@@ -35,5 +35,5 @@ not specified it will default to the value of the `build.build-dir` key in
 
 -------------------
 
-***Note:*** *The build command copies all files (excluding files with `.md` extension) from the source directory
+***Note:*** *The build command copies all files (excluding files with a `.md` extension) from the source directory
 into the build directory.*
