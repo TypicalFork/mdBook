@@ -8,7 +8,7 @@ Here is an example of what a ***book.toml*** file might look like:
 [book]
 title = "Example book"
 author = "John Doe"
-description = "The example book covers examples."
+description = "The example book documents examples."
 
 [rust]
 edition = "2018"
@@ -31,8 +31,7 @@ limit-results = 15
 ## Supported configuration options
 
 It is important to note that **any** relative path specified in the
-configuration will always be taken relative from the root of the book where the
-configuration file is located.
+configuration file will always be taken relative to the root of the book.
 
 ### General metadata
 
@@ -42,9 +41,7 @@ This is general information about your book.
 - **authors:** The author(s) of the book
 - **description:** A description for the book, which is added as meta
   information in the html `<head>` of each page
-- **src:** By default, the source directory is found in the directory named
-  `src` directly under the root folder. But this is configurable with the `src`
-  key in the configuration file.
+- **src:** The name of the source directory (`src` by default)
 - **language:** The main language of the book, which is used as a language attribute `<html lang="en">` for example.
 
 **book.toml**
@@ -83,10 +80,10 @@ This controls the build process of your book.
   will be created when the book is built (i.e. `create-missing = true`). If this
   is `false` then the build process will instead exit with an error if any files
   do not exist.
-- **use-default-preprocessors:** Disable the default preprocessors of (`links` &
+- **use-default-preprocessors:** Disable the default preprocessors (`links` &
   `index`) by setting this option to `false`.
 
-  If you have the same, and/or other preprocessors declared via their table
+  If you have the same and/or other preprocessors declared via their table
   of configuration, they will run instead.
 
   - For clarity, with no preprocessor configuration, the default `links` and
@@ -94,7 +91,7 @@ This controls the build process of your book.
   - Setting `use-default-preprocessors = false` will disable these
     default preprocessors from running.
   - Adding `[preprocessor.links]`, for example, will ensure, regardless of
-    `use-default-preprocessors` that `links` it will run.
+    `use-default-preprocessors`, that `links` it will run.
 
 ## Configuring Preprocessors
 
@@ -120,8 +117,8 @@ create-missing = false
 
 ### Custom Preprocessor Configuration
 
-Like renderers, preprocessor will need to be given its own table (e.g.
-`[preprocessor.mathjax]`). In the section, you may then pass extra
+Each preprocessor will need to be given its own table (e.g.
+`[preprocessor.mathjax]`) in which you may pass extra
 configuration to the preprocessor by adding key-value pairs to the table.
 
 For example
@@ -145,8 +142,8 @@ renderers = ["html"]  # mathjax only makes sense with the HTML renderer
 
 ### Provide Your Own Command
 
-By default when you add a `[preprocessor.foo]` table to your `book.toml` file,
-`mdbook` will try to invoke the `mdbook-foo` executable. If you want to use a
+By default, when you add a `[preprocessor.foo]` table to your `book.toml` file,
+`mdbook` will try to invoke the `mdbook-foo` executable. However, if you want to use a
 different program name or pass in command-line arguments, this behaviour can
 be overridden by adding a `command` field.
 
@@ -159,8 +156,8 @@ command = "python random.py"
 
 ### HTML renderer options
 
-The HTML renderer has a couple of options as well. All the options for the
-renderer need to be specified under the TOML table `[output.html]`.
+The HTML renderer also has a few of options. All the options for the
+renderer must be specified in the TOML table `[output.html]`.
 
 The following configuration options are available:
 
@@ -187,21 +184,21 @@ The following configuration options are available:
 - **additional-js:** If you need to add some behaviour to your book without
   removing the current behaviour, you can specify a set of JavaScript files that
   will be loaded alongside the default one.
-- **print:** A subtable for configuration print settings. mdBook by default adds
+- **print:** A subtable for configuration print settings. mdBook, by default, adds
   support for printing out the book as a single page. This is accessed using the
   print icon on the top right of the book.
 - **no-section-label:** mdBook by defaults adds section label in table of
-  contents column. For example, "1.", "2.1". Set this option to true to disable
+  contents. For example, "1.", "2.1". Set this option to true to disable
   those labels. Defaults to `false`.
 - **fold:** A subtable for configuring sidebar section-folding behavior.
 - **playground:** A subtable for configuring various playground settings.
 - **search:** A subtable for configuring the in-browser search functionality.
   mdBook must be compiled with the `search` feature enabled (on by default).
-- **git-repository-url:**  A url to the git repository for the book. If provided
+- **git-repository-url:**  A URL to the git repository for the book. If provided,
   an icon link will be output in the menu bar of the book.
 - **git-repository-icon:** The FontAwesome icon class to use for the git
   repository link. Defaults to `fa-github`.
-- **edit-url-template:** Edit url template, when provided shows a
+- **edit-url-template:** Edit URL template, when provided, shows a
   "Suggest an edit" button for directly jumping to editing the currently
   viewed page. For e.g. GitHub projects set this to
   `https://github.com/<owner>/<repo>/edit/master/{path}` or for
@@ -210,17 +207,17 @@ The following configuration options are available:
   where {path} will be replaced with the full path of the file in the
   repository.
 - **redirect:** A subtable used for generating redirects when a page is moved.
-  The table contains key-value pairs where the key is where the redirect file
-  needs to be created, as an absolute path from the build directory, (e.g.
+  The table contains key-value pairs: the key being is where the redirect file
+  needs to be created as an absolute path from the build directory (e.g.
   `/appendices/bibliography.html`). The value can be any valid URI the
   browser should navigate to (e.g. `https://rust-lang.org/`,
   `/overview.html`, or `../bibliography.html`).
 - **input-404:** The name of the markdown file used for missing files.
   The corresponding output file will be the same, with the extension replaced with `html`.
   Defaults to `404.md`.
-- **site-url:** The url where the book will be hosted. This is required to ensure
+- **site-url:** The URL where the book will be hosted. This is required to ensure
   navigation links and script/css imports in the 404 file work correctly, even when accessing
-  urls in subdirectories. Defaults to `/`.
+  URLs in subdirectories. Defaults to `/`.
 - **cname:** The DNS subdomain or apex domain at which your book will be hosted.
   This string will be written to a file named CNAME in the root of your site, as
   required by GitHub Pages (see [*Managing a custom domain for your GitHub Pages
@@ -235,14 +232,14 @@ Available configuration options for the `[output.html.print]` table:
 
 Available configuration options for the `[output.html.fold]` table:
 
-- **enable:** Enable section-folding. When off, all folds are open.
+- **enable:** Enable section-folding. When false, all folds are open.
   Defaults to `false`.
-- **level:** The higher the more folded regions are open. When level is 0, all
+- **level:** The higher, the more folded regions are open. When the level is 0, all
   folds are closed. Defaults to `0`.
 
 Available configuration options for the `[output.html.playground]` table:
 
-- **editable:** Allow editing the source code. Defaults to `false`.
+- **editable:** Allow editing of source code. Defaults to `false`.
 - **copyable:** Display the copy button on code snippets. Defaults to `true`.
 - **copy-js:** Copy JavaScript files for the editor to the output directory.
   Defaults to `true`.
@@ -331,7 +328,7 @@ copy-js = true
 ### Markdown Renderer
 
 The Markdown renderer will run preprocessors and then output the resulting
-Markdown. This is mostly useful for debugging preprocessors, especially in
+Markdown. This is primarily designed for debugging preprocessors, especially in
 conjunction with `mdbook test` to see the Markdown that `mdbook` is passing
 to `rustdoc`.
 
@@ -351,17 +348,17 @@ specify which preprocessors should run before the Markdown renderer.
 ### Custom Renderers
 
 A custom renderer can be enabled by adding a `[output.foo]` table to your
-`book.toml`. Similar to [preprocessors](#configuring-preprocessors) this will
+`book.toml`. Similar to [preprocessors](#configuring-preprocessors), this will
 instruct `mdbook` to pass a representation of the book to `mdbook-foo` for
 rendering. See the [alternative backends] chapter for more detail.
 
 The custom renderer has access to all the fields within its table (i.e.
-anything under `[output.foo]`). mdBook checks for two common fields:
+anything in `[output.foo]`). mdBook checks for two common fields:
 
 - **command:** The command to execute for this custom renderer. Defaults to
   the name of the renderer with the `mdbook-` prefix (such as `mdbook-foo`).
-- **optional:** If `true`, then the command will be ignored if it is not
-  installed, otherwise mdBook will fail with an error. Defaults to `false`.
+- **optional:** If `true`, the command will be ignored if it is not
+  installed. If `false` mdBook will fail with an error. Defaults to `false`.
 
 [alternative backends]: ../for_developers/backends.md
 
@@ -385,14 +382,14 @@ For example:
 - `MDBOOK_FOO_BAR` -> `foo-bar`
 - `MDBOOK_FOO_bar__baz` -> `foo-bar.baz`
 
-So by setting the `MDBOOK_BOOK__TITLE` environment variable you can override the
+So by setting the `MDBOOK_BOOK__TITLE` environment variable, you can override the
 book's title without needing to touch your `book.toml`.
 
 > **Note:** To facilitate setting more complex config items, the value of an
 > environment variable is first parsed as JSON, falling back to a string if the
 > parse fails.
 >
-> This means, if you so desired, you could override all book metadata when
+> This means, if you so desire, you can override all book metadata when
 > building the book with something like
 >
 > ```shell
@@ -400,6 +397,6 @@ book's title without needing to touch your `book.toml`.
 > $ mdbook build
 > ```
 
-The latter case may be useful in situations where `mdbook` is invoked from a
+The latter case may be helpful in situations where `mdbook` is invoked from a
 script or CI, where it sometimes isn't possible to update the `book.toml` before
 building.
