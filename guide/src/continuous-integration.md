@@ -7,7 +7,7 @@ straightforwardly transfer to other continuous integration providers as well.
 
 Here is a sample Travis CI `.travis.yml` configuration that ensures `mdbook
 build` and `mdbook test` run successfully. The key to fast CI turnaround times
-is caching `mdbook` installs, so that you aren't compiling `mdbook` on every CI
+is caching `mdbook` installs so that you aren't compiling `mdbook` on every CI
 run.
 
 ```yaml
@@ -31,7 +31,7 @@ script:
 
 ## Deploying Your Book to GitHub Pages
 
-Following these instructions will result in your book being published to GitHub
+Following these instructions will result in your book being published on GitHub
 pages after a successful CI run on your repository's `master` branch.
 
 First, create a new GitHub "Personal Access Token" with the "public_repo"
@@ -151,4 +151,4 @@ pages:
     - $CARGO_HOME/bin
 ```
 
-After you commit and push this new file, GitLab CI will run and your book will be available!
+After you commit and push this new file, GitLab CI will run, and your book will be available!
